@@ -1,5 +1,5 @@
 # cheapo
-<!-- [![Build Status](https://travis-ci.com/LMBoyle/project2.svg?branch=master)](https://travis-ci.com/LMBoyle/project2) -->
+[![Build Status](https://travis-ci.com/LMBoyle/cheapo.svg?branch=master)](https://travis-ci.com/LMBoyle/cheapo)
 
 A website help you budget your money and have your friends push to toward better spending habits
 
@@ -26,7 +26,7 @@ Made by [Luke](https://github.com/LMBoyle), [Krishti](https://github.com/krishb0
 
 ## Links
 
-<!-- [Deployed link]() -->
+[Deployed link](https://cheapo-lmk.herokuapp.com/)
 
 [Github Repo](https://github.com/LMBoyle/cheapo)
 
