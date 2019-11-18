@@ -1,0 +1,13 @@
+i {
+  padding: 10px 20px;
+  float: right;
+  color: #1a73e8;
+}
+
+.navbar-brand {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 5px
+}
