@@ -7,9 +7,12 @@ import "./style.css"
 
 function Nav() {
   return (
-    <nav className="navbar navbar-dark bg-dark justify-content-center">
-      <a href="/" className="navbar-brand navbar-dark"> Cheapo </a>
-    </nav>
+
+      <nav className="navbar justify-content-center">
+        <a href="/" className="navbar-brand navbar-dark"> Cheapo </a>
+        <i className="material-icons md-72">local_atm</i>
+      </nav>
+    
   );
 }
 

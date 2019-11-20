@@ -15,7 +15,7 @@ function NoMatch() {
       <Row>
         <Col size="md-12">
           <Jumbotron>
-            <h1> Dashboard </h1>
+            <h1> Welcome, please sign in!</h1>
           </Jumbotron>
         </Col>
       </Row>
