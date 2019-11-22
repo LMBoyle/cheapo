@@ -9,7 +9,7 @@ import Jumbotron from "../components/Jumbotron";
 
 // Functions ======================================================================================
 
-function NoMatch() {
+function Goals() {
   return (
     <Container fluid>
       <Row>
@@ -25,4 +25,4 @@ function NoMatch() {
 
 // Export =========================================================================================
 
-export default NoMatch;
+export default Goals;
