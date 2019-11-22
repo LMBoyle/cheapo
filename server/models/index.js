@@ -1,3 +1,6 @@
 // Export =========================================================================================
 
-export { default } from "./Input";
+module.exports = {
+  Database: require("./database"),
+  User: require("./user")
+};
