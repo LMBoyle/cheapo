@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Pages
 import Dashboard from "./pages/Dashboard";
+import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Goals from "./pages/Goals";
 import Friends from "./pages/Friends";
@@ -24,6 +25,7 @@ function App() {
         <Wrapper >
           <Switch>
             <Route exact path="/" component={Dashboard} />
+            <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/goals" component={Goals} />
             <Route exact path="/friends" component={Friends} />

@@ -1,5 +1,6 @@
 // Export =========================================================================================
 
 module.exports = {
-  database: require("./database")
+  database: require("./database"),
+  userModel: require("./userModel")
 };

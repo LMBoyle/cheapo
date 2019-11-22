@@ -5,12 +5,12 @@ import React from "react";
 // Components
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
-import Login from "../components/Login"
+import LoginForm from "../components/LoginForm"
 
 
 // Functions ======================================================================================
 
-function NoMatch() {
+function Login() {
   return (
     <Container fluid>
       <Row>
@@ -18,7 +18,7 @@ function NoMatch() {
           <Jumbotron>
             <h1> Login </h1>
             <form>
-              <Login />
+              <LoginForm />
             </form>
           </Jumbotron>
         </Col>
@@ -29,4 +29,4 @@ function NoMatch() {
 
 // Export =========================================================================================
 
-export default NoMatch;
+export default Login;
