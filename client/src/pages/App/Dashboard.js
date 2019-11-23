@@ -3,23 +3,23 @@
 import React, { Component } from "react";
 
 // Components
-import { Col, Row, Container } from "../../components/Grid";
-import Jumbotron from "../../components/Jumbotron";
+// import { Col, Row, Container } from "../../components/Grid";
+// import Jumbotron from "../../components/Jumbotron";
+import DashboardLoggedIn from "../../components/DashboardLoggedIn";
+import DashboardDefault from "../../components/DashboardDefault";
 
 // Functions ======================================================================================
-
+//Use as routing to the two diff dashboards
 function Dashboard(props) {
-    return (
-      <Container fluid>
-        <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <h1> Welcome to Cheapo! </h1>
-            </Jumbotron>
-          </Col>
-        </Row>
-      </Container>
-    );
+    const isLoggedIn = props.isLoggedIn
+    if(isLoggedIn){
+      return <DashboardLoggedIn 
+      user = {props.user.firstName} 
+      />
+    }else{
+      return <DashboardDefault />
+    }
+
   }
 
 
