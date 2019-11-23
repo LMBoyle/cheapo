@@ -11,17 +11,26 @@ const Nav = (props) => {
   let greeting;
 
   if (props.user === null) {
-		greeting = <p>Hello guest</p>
+		greeting = (
+      <Fragment>
+        <ul className="nav navbar-right">
+          <li><Link to="/signup" className="logout"><i className="material-icons">person_add</i> Sign Up </Link></li>
+          <li><Link to="/login" className="logout"><i className="material-icons">verified_user</i> Login </Link></li>
+        </ul>
+      </Fragment>
+    )
 	} else if (props.user.firstName) {
 		greeting = (
 			<Fragment>
 				Welcome back, <strong>{props.user.firstName}</strong>
+        <Link to="#" className="logout" onClick={props.logout}> Logout </Link>
 			</Fragment>
 		)
 	} else if (props.user.username) {
 		greeting = (
 			<Fragment>
 				Welcome back, <strong>{props.user.username} </strong>
+        <Link to="/" className="logout" onClick={props.logout}> Logout </Link>
 			</Fragment>
 		)
   }
@@ -34,7 +43,7 @@ const Nav = (props) => {
       <Col size="md-7"></Col>
       <Col size="md-3">
         <div className="float-right">
-        {greeting} - <Link to="#" className="logout" onClick={props.logout}>Logout</Link>
+        {greeting}
         </div>
       </Col>
     </nav>
