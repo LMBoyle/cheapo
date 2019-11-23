@@ -10,6 +10,7 @@ import Welcome from "./pages/App/Welcome"
 import Dashboard from "./pages/App/Dashboard";
 import Goals from "./pages/App/Goals";
 import Friends from "./pages/App/Friends";
+import Profile from "./pages/App/Profile"; 
 import NoMatch from "./pages/NoMatch/NoMatch";
 
 // Components
@@ -18,6 +19,7 @@ import Wrapper from "./components/Wrapper"
 
 // Other
 import AUTH from "./utils/AUTH"
+
 
 // Functions ======================================================================================
 
@@ -89,6 +91,7 @@ class App extends Component {
                 <Route exact path="/dashboard" component={() => <Dashboard user={this.state.user}/>} />
                 <Route exact path="/goals" component={Goals} />
                 <Route exact path="/friends" component={Friends} />
+                <Route exact path="/profile" component={() => <Profile user ={this.state.user} />} />
                 <Route component={NoMatch} />
               </Switch>
             </div>

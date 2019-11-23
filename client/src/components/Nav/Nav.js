@@ -40,11 +40,14 @@ const Nav = (props) => {
       <Col size="md-2">
         <Link to="/" className="navbar-brand"><i className="material-icons md-72">local_atm</i> Cheapo </Link>
       </Col>
-      <Col size="md-7"></Col>
+      <Col size="md-5"></Col>
       <Col size="md-3">
         <div className="float-right">
         {greeting}
         </div>
+      </Col>
+      <Col size="2">
+        <a href ="/profile"> <strong>User Profile</strong></a>
       </Col>
     </nav>
   )
