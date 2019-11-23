@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 // Pages
 import LoginForm from "./pages/Auth/LoginForm"
 import SignupForm from  "./pages/Auth/SignupForm"
+import Welcome from "./pages/App/Welcome"
 import Dashboard from "./pages/App/Dashboard";
 import Goals from "./pages/App/Goals";
 import Friends from "./pages/App/Friends";
@@ -78,6 +79,7 @@ class App extends Component {
   render() {
     return (
       <div class="App">
+        {/* If user is logged in */}
         { this.state.loggedIn && (
           <div>
             <Nav user={this.state.user} logout={this.logout}/>
@@ -92,11 +94,15 @@ class App extends Component {
             </div>
           </div>
         )}
+        {/* If user is not logged in */}
         { !this.state.loggedIn && (
-          <div className="auth-wrapper" style={{paddingTop:40}}>
-            <Route exact path="/" component={() => <LoginForm login={this.login}/>} />
-            <Route exact path="/signup" component={SignupForm} />
-            <Route exact path="/login" component={() => <LoginForm user={this.login}/>} />
+          <div>
+            <Nav user={this.state.user} />
+            <div className="auth-wrapper" style={{paddingTop:40}}>
+              <Route exact path="/" component={() => <Welcome login={this.login}/>} />
+              <Route exact path="/signup" component={SignupForm} />
+              <Route exact path="/login" component={() => <LoginForm user={this.login}/>} />
+            </div>
           </div>
         )}
       </div>
