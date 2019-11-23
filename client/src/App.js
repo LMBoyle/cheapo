@@ -83,7 +83,7 @@ class App extends Component {
             <Nav user={this.state.user} logout={this.logout}/>
             <div className="main-view">
               <Switch>
-                <Route exact path="/" component={() => <Dashboard user={this.state.user}/>} />
+                <Route exact path="/" component={() => <Dashboard isLoggedIn = {this.state.loggedIn} user={this.state.user}/>} />
                 <Route exact path="/dashboard" component={() => <Dashboard user={this.state.user}/>} />
                 <Route exact path="/goals" component={Goals} />
                 <Route exact path="/friends" component={Friends} />
