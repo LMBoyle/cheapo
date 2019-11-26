@@ -18,11 +18,11 @@ app.use(express.json());
 
 // Environment ====================================================================================
 
-// If its production environment!
+// If it's production environment!
 
 if (process.env.NODE_ENV === 'production') {
 	const path = require('path');
-	// console.log('YOU ARE IN THE PRODUCTION ENV');
+	console.log('YOU ARE IN THE PRODUCTION ENV');
 	app.use('/static', express.static(path.join(__dirname, '../client/build/static')));
 	app.get('/', (req, res) => {
 		res.sendFile(path.join(__dirname, '../client/build/'))
@@ -65,7 +65,7 @@ app.use(function(err, req, res, next) {
 // Listen =========================================================================================
 
 app.listen(PORT, function() {
-  console.log(`App running on port ${PORT}!`);
+  console.log(`API running on port ${PORT}!`);
 });
 
   //!database is not created yet, this is just the code for it. np

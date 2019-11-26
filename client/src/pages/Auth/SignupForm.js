@@ -15,29 +15,29 @@ import AUTH from '../../utils/AUTH';
 
 class SignupForm extends Component {
 
-	constructor() {
+  constructor() {
     super();
-    
-		this.state = {
+
+    this.state = {
       firstName: '',
       lastName: '',
-			username: '',
-			password: '',
-			confirmPassword: '',
-			redirectTo: null
-		};
+      username: '',
+      password: '',
+      confirmPassword: '',
+      redirectTo: null
+    };
   }
-  
-	handleChange = (event) => {
-		this.setState({
-			[event.target.name]: event.target.value
-		});
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   }
-  
-	handleSubmit = (event) => {
-		event.preventDefault();
-		// TODO - validate!
-		AUTH.signup({
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    // TODO - validate!
+    AUTH.signup({
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       username: this.state.username,
@@ -53,19 +53,19 @@ class SignupForm extends Component {
       }
     });
   }
-  
-	render() {
-		if (this.state.redirectTo) {
-			return <Redirect to={{ pathname: this.state.redirectTo }} />
+
+  render() {
+    if (this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }} />
     }
-    
-		return (
+
+    return (
       <Container>
         <Row>
           <Col size="md-3"></Col>
           <Col size="md-6">
             <Card title="Register for React Reading List">
-              <form style={{marginTop: 10}}>
+              <form style={{ marginTop: 10 }}>
                 <label htmlFor="username"> First name: </label>
                 <Input
                   type="text"
@@ -109,8 +109,8 @@ class SignupForm extends Component {
           <Col size="md-3"></Col>
         </Row>
       </Container>
-		)
-	}
+    )
+  }
 }
 
 // Export =========================================================================================
