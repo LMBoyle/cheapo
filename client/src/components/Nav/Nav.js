@@ -23,13 +23,15 @@ const Nav = (props) => {
 		greeting = (
 			<Fragment>
 				Welcome back, <strong>{props.user.firstName}</strong>
-        <Link to="#" className="logout" onClick={props.logout}> Logout </Link>
+        <Link to ="/profile"> <strong> User Profile </strong></Link>
+        <Link to="/" className="logout" onClick={props.logout}> Logout </Link>
 			</Fragment>
 		)
 	} else if (props.user.username) {
 		greeting = (
 			<Fragment>
 				Welcome back, <strong>{props.user.username} </strong>
+        <Link to ="/profile"> <strong> User Profile </strong></Link>
         <Link to="/" className="logout" onClick={props.logout}> Logout </Link>
 			</Fragment>
 		)
@@ -43,11 +45,8 @@ const Nav = (props) => {
       <Col size="md-5"></Col>
       <Col size="md-3">
         <div className="float-right">
-        {greeting}
+          {greeting}
         </div>
-      </Col>
-      <Col size="2">
-        <a href ="/profile"> <strong>User Profile</strong></a>
       </Col>
     </nav>
   )

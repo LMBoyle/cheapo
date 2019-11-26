@@ -15,7 +15,7 @@ function Profile() {
       <Row>
         <Col size="md-12">
           <Jumbotron>
-            <h1> User Profile</h1>
+            <h1> User Profile </h1>
           </Jumbotron>
         </Col>
       </Row>

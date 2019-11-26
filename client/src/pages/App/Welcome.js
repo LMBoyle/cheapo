@@ -1,11 +1,10 @@
 // Imports ========================================================================================
 
-import React, { Component } from "react";
+import React from "react";
 
 // Components
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
-import Nav from "../../components/Nav"
 
 // Functions ======================================================================================
 
