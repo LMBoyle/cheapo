@@ -11,7 +11,8 @@
 }
 
 .navbar a {
-  color: white
+  color: white;
+  padding-right: 20px
 }
 
 .navbar i {
@@ -21,5 +22,9 @@
 
 .nav li {
   margin-right: 25px
+}
+
+#userName {
+  text-transform: capitalize;
 }
 
