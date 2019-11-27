@@ -24,7 +24,7 @@
   margin-right: 25px
 }
 
-#userName {
+.userName {
   text-transform: capitalize;
 }
 
