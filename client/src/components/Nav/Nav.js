@@ -2,7 +2,6 @@
 
 import React, { Fragment } from "react";
 import { Link } from 'react-router-dom';
-import { Col } from '../Grid';
 import './Nav.css';
 
 // Functions ======================================================================================
@@ -13,12 +12,10 @@ const Nav = (props) => {
   if (props.user === null) {
     greeting = (
       <Fragment>
-        <div className="float-right">
-          <ul className="nav navbar-right">
-            <li><Link to="/signup" className="logout"><i className="material-icons">person_add</i> Sign Up </Link></li>
-            <li><Link to="/login" className="logout"><i className="material-icons">verified_user</i> Login </Link></li>
-          </ul>
-        </div>
+        <ul className="nav navbar-right">
+          <li><Link to="/signup" className="logout"><i className="material-icons">person_add</i> Sign Up </Link></li>
+          <li><Link to="/login" className="logout"><i className="material-icons">verified_user</i> Login </Link></li>
+        </ul>
       </Fragment>
     )
   } else if (props.user.firstName) {
@@ -52,13 +49,16 @@ const Nav = (props) => {
 	}
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <Col size="md-2">
-        <Link to="/" className="navbar-brand"><i className="material-icons md-72">local_atm</i> Cheapo </Link>
-      </Col>
-      <Col size="md">
-          {greeting}
-      </Col>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <Link to="/" className="navbar-brand"><i className="material-icons md-72">local_atm</i> Cheapo </Link>
+      
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLinks" aria-controls="navbarLinks" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      
+      <span className="collapse navbar-collapse justify-content-end" id="navbarLinks">
+        {greeting}
+      </span>
     </nav>
   )
 };

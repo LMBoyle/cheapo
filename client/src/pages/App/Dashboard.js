@@ -1,6 +1,6 @@
 // Imports ========================================================================================
 
-import React, { Component } from "react";
+import React from "react";
 
 // Components
 import { Col, Row, Container } from "../../components/Grid";
@@ -9,20 +9,20 @@ import DashboardLoggedIn from "../../components/DashboardLoggedIn"
 
 // Functions ======================================================================================
 
-function Dashboard(props) {
-    return (
-      <Container fluid>
-        <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <h1> Welcome to Cheapo! </h1>
-              <DashboardLoggedIn />
-            </Jumbotron>
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
+function Dashboard() {
+  return (
+    <Container fluid>
+      <Row>
+        <Col size="md-12">
+          <Jumbotron>
+            <h1> Welcome to Cheapo! </h1>
+            <DashboardLoggedIn />
+          </Jumbotron>
+        </Col>
+      </Row>
+    </Container>
+  );
+}
 
 
 // Export =========================================================================================

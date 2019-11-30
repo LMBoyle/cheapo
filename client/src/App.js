@@ -15,6 +15,7 @@ import NoMatch from "./pages/NoMatch/NoMatch";
 
 // Components
 import Nav from "./components/Nav";
+import Footer from "./components/Footer"
 
 // Other
 import AUTH from "./utils/AUTH"
@@ -78,7 +79,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <>
         {/* If user is logged in */}
         { this.state.loggedIn && (
           <div>
@@ -100,14 +101,15 @@ class App extends Component {
         { !this.state.loggedIn && (
           <div>
             <Nav user={this.state.user} />
-            <div className="auth-wrapper" style={{ paddingTop: 40 }}>
+            <div className="auth-wrapper">
               <Route exact path="/" component={() => <Welcome />} />
               <Route exact path="/signup" component={SignupForm} />
               <Route exact path="/login" component={() => <LoginForm login={this.login} />} />
             </div>
           </div>
         )}
-      </div>
+        <Footer />
+      </>
     );
   };
 };
