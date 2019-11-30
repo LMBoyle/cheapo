@@ -10,7 +10,7 @@ module.exports = {
   // Defining methods for the userController
   
   getUser: (req, res, next) => {
-    console.log("in userController.js, getUser");
+    // console.log("in userController.js, getUser");
     if (req.user) {
       return res.json({ user: req.user });
     } else {
@@ -19,7 +19,7 @@ module.exports = {
   },
 
   register: (req, res) => {
-    console.log("in userController.js, register");
+    // console.log("in userController.js, register");
     const { firstName, lastName, username, password } = req.body;
     // ADD VALIDATION
     db.User.findOne({ 'username': username }, (err, userMatch) => {
@@ -42,7 +42,7 @@ module.exports = {
   },
 
   logout: (req, res) => {
-    console.log("in userController.js, logout");
+    // console.log("in userController.js, logout");
     if (req.user) {
       req.session.destroy();
       res.clearCookie('connect.sid'); // clean up!
@@ -53,12 +53,12 @@ module.exports = {
   },
 
   auth: function(req, res, next) {
-    console.log("in userController.js, auth");
+    // console.log("in userController.js, auth");
 		next();
   },
 
   authenticate: (req, res) => {
-    console.log("in userController.js, authenticate");
+    // console.log("in userController.js, authenticate");
 		const user = JSON.parse(JSON.stringify(req.user)); // hack
 		const cleanUser = Object.assign({}, user);
 		if (cleanUser) {
