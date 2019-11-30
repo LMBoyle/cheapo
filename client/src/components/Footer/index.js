@@ -1,5 +1,3 @@
 // Export =========================================================================================
 
-export * from "./CardHeader";
-export * from "./Card";
-export * from "./CardImg";
+export { default } from "./Footer";
