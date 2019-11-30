@@ -8,13 +8,14 @@ class LoginForm extends Component {
 
   constructor() {
     super();
-
-    this.state = {
-      username: '',
-      password: '',
-      redirectTo: null
+    
+		this.state = {
+			username: '',
+			password: '',
+			redirectTo: null
     };
-  }
+
+	}
 
   handleChange = (event) => {
     this.setState({
@@ -39,8 +40,8 @@ class LoginForm extends Component {
           <Row>
             <Col size="md-3"></Col>
             <Col size="md-6">
-              <Card title="Login to React Reading List">
-                <form style={{ marginTop: 10 }}>
+              <Card title="Login to Cheapo">
+                <form style={{marginTop: 10}}>
                   <label htmlFor="username"> Username: </label>
                   <Input
                     type="text"
