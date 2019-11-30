@@ -1,7 +1,6 @@
 import React from "react";
 
 function Jumbotron( props ) {
-  console.log(props)
   return (
     <div
       style={{width: "100%", clear: "both", paddingTop: 120, textAlign: "center", ...props.style}}
