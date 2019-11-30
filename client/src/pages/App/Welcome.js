@@ -17,20 +17,33 @@ function Welcome(props) {
             <Jumbotron>
               <h1> Welcome to Cheapo! </h1>
               <p> We strive to help you help your friends save money! </p>
-              <div className="container">
-                <Card
-                  title="Save Money"
-                >
-                  Save towards rent, vacation or treating yourself to something nice!
-                </Card>
-              </div>
             </Jumbotron>
           </Col>
         </Row>
+        <Container>
+          <Row>
+            <Col size="md-6">
+              <Card
+                title="Save Money"
+              >
+                Save towards rent, vacation or treating yourself to something nice!
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col size="md-6"></Col>
+            <Col size="md-6">
+              <Card
+                title="Connect With Friends"
+              >
+                See how close friends are to meeting their goals and cheer them on!
+              </Card>
+            </Col>
+          </Row>
+        </Container>
       </Container>
     );
   }
-
 
 // Export =========================================================================================
 

@@ -1,12 +1,13 @@
 import React from "react";
 
-function Jumbotron({ children }) {
+function Jumbotron( props ) {
+  console.log(props)
   return (
     <div
-      style={{ height: 700, width: "100%", clear: "both", paddingTop: 120, textAlign: "center" }}
+      style={{width: "100%", clear: "both", paddingTop: 120, textAlign: "center", ...props.style}}
       className="jumbotron jumbotron-fluid"
     >
-      {children}
+      {[props.children]}
     </div>
   );
 }
