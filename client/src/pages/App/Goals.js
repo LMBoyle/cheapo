@@ -3,11 +3,13 @@
 import React, { Component } from 'react';
 
 // Components
-import { Redirect, Link } from 'react-router-dom';
+// import { Redirect, Link } from 'react-router-dom';
 import { Col, Row, Container } from "../../components/Grid";
-import Jumbotron from "../../components/Jumbotron";
-import { CardHeader, CardImg, Card } from "../../components/Card"
+import { Card } from "../../components/Card"
 import { FormBtn, Input } from "../../components/Form";
+
+// Others
+import API from "../../utils/API"
 
 
 // Functions ======================================================================================
@@ -19,30 +21,53 @@ class Goals extends Component {
     super();
 
     this.state = {
+      goals: [],
       goalName: '',
       weeklyAmt: '',
       totalAmt: '',
     }
   }
 
-  handleChange = (event) => {
+  componentDidMount() {
+    this.loadGoals();
+  }
+
+  loadGoals = () => {
+    API.getGoals()
+      .then(res =>
+        this.setState({ goals: res.data.goals, goalName: "", weeklyAmt: "", totalAmt: "" })
+      )
+      .catch(err => console.log(err));
+  };
+
+  deleteGoal = id => {
+    API.deleteGoal(id)
+      .then(res => this.loadGoals())
+      .catch(err => console.log(err));
+  };
+
+  handleChange = (e) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [e.target.name]: e.target.value
     });
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.props.login(this.state.username, this.state.password);
-    this.setState({
-      redirectTo: '/'
-    });
+  handleSubmit = (e) => {
+    e.preventDefault();
+    if (this.state.goalName && this.state.totalAmt && this.state.weeklyAmt) {
+      API.saveGoal({
+        goalName: this.state.goalName,
+        totalAmt: this.state.totalAmt,
+        weeklyAmt: this.state.weeklyAmt
+      })
+        .then(res => this.loadGoals())
+        .catch(err => console.log(err));
+    }
   }
-
 
   render() {
   
-    console.log(this.state.goalName);
+    console.log(this.state);
 
     return (
       <Container fluid>
@@ -71,7 +96,12 @@ class Goals extends Component {
                   value={this.state.weeklyAmt}
                   onChange={this.handleChange}
                 />
-                <FormBtn onClick={this.handleSubmit}> Submit Goal!</FormBtn>
+                <FormBtn 
+                  disabled={!(this.state.goalName && this.state.totalAmt && this.state.weeklyAmt)}
+                  onClick={this.handleSubmit}
+                > 
+                  Submit Goal!
+                </FormBtn>
               </form>
             </Card>
           </Col>
