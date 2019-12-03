@@ -1,22 +1,22 @@
 // Dependencies ===================================================================================
 
-const path = require("path");
 const router = require("express").Router();
-const authRoutes = require("./auth");
-const apiRoutes = require("./api");
+const goalsController = require("../../controllers/goalsController");
 
 // Routes =========================================================================================
 
-// Auth Routes
-router.use('/auth', authRoutes);
+// Matches with "/api/goals"
+router
+  .route("/")
+  .get(goalsController.findAll)
+  .post(goalsController.create);
 
-// API Routes
-router.use("/api", apiRoutes);
-
-// If no API routes are hit, send the React app
-router.use(function(req, res) {
-  res.sendFile(path.join(__dirname, "../../client/build/index.html"));
-});
+// Matches with "/api/goals/:id"
+router
+  .route("/:id")
+  .get(goalsController.findById)
+  .put(goalsController.update)
+  .delete(goalsController.remove);
 
 // Export =========================================================================================
 

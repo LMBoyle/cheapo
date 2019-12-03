@@ -29,13 +29,13 @@ if (process.env.NODE_ENV === 'production') {
 	});
 }
 
-// Loading evnironmental variables here
+// Loading environmental variables here
 if (process.env.NODE_ENV !== 'production') {
 	console.log('loading dev environments');
 	require('dotenv').config();
 }
 
-// Middlewares ====================================================================================
+// Middleware =====================================================================================
 
 app.use(morgan('dev'));
 app.use(session({
@@ -67,5 +67,3 @@ app.use(function(err, req, res, next) {
 app.listen(PORT, function() {
   console.log(`API running on port ${PORT}!`);
 });
-
-  //!database is not created yet, this is just the code for it. np

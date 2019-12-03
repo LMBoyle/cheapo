@@ -1,21 +1,13 @@
-.navbar-brand {
-  display: block;
-  width: 100%;
-  text-align: center;
-  margin: 0;
-  padding-bottom: 5px
+.bg-light {
+  background-color: #6893A1!important;
 }
 
-.navbar {
-  background: #6B8E23; 
+.navbar-light .navbar-brand,
+nav a {
+  color: #650D1B
 }
 
-.navbar a {
-  color: white;
-  padding-right: 20px
-}
-
-.navbar i {
+nav i {
   vertical-align: middle;
   padding-right: 5px
 }
@@ -26,5 +18,9 @@
 
 .userName {
   text-transform: capitalize;
+}
+
+nav {
+  z-index: 9999;
 }
 

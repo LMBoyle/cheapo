@@ -18,6 +18,7 @@ import NoMatch from "./pages/NoMatch/NoMatch";
 // Components
 import Nav from "./components/Nav";
 import Facebook from '.components /social/facebook'
+import Footer from "./components/Footer"
 
 // Other
 import AUTH from "./utils/AUTH"
@@ -36,38 +37,38 @@ class App extends Component {
     };
   }
 
-	componentDidMount() {
-		AUTH.getUser().then(response => {
-			if (!!response.data.user) {
-				this.setState({
-					loggedIn: true,
-					user: response.data.user
-				});
-			} else {
-				this.setState({
-					loggedIn: false,
-					user: null
-				});
-			}
-		});
-  }
-  
-	logout = (event) => {
-    event.preventDefault();
-    
-		AUTH.logout().then(response => {
-			// console.log(response.data);
-			if (response.status === 200) {
-				this.setState({
-					loggedIn: false,
+  componentDidMount() {
+    AUTH.getUser().then(response => {
+      if (!!response.data.user) {
+        this.setState({
+          loggedIn: true,
+          user: response.data.user
+        });
+      } else {
+        this.setState({
+          loggedIn: false,
           user: null
-				});
-			}
-		});
-	}
+        });
+      }
+    });
+  }
 
-	login = (username, password) => {
-		AUTH.login(username, password).then(response => {
+  logout = (event) => {
+    event.preventDefault();
+
+    AUTH.logout().then(response => {
+      // console.log(response.data);
+      if (response.status === 200) {
+        this.setState({
+          loggedIn: false,
+          user: null
+        });
+      }
+    });
+  }
+
+  login = (username, password) => {
+    AUTH.login(username, password).then(response => {
       // console.log(response);
       if (response.status === 200) {
         // update the state
@@ -77,13 +78,13 @@ class App extends Component {
         });
       }
     });
-	}
+  }
 
   render() {
     return (
-      <div className="App">
+      <>
         {/* If user is logged in */}
-        { this.state.loggedIn && (
+        {this.state.loggedIn && (
           <div>
             <Nav user={this.state.user} logout={this.logout} />
             <div className="main-view">
@@ -100,10 +101,10 @@ class App extends Component {
         )}
 
         {/* If user is not logged in */}
-        { !this.state.loggedIn && (
+        {!this.state.loggedIn && (
           <div>
             <Nav user={this.state.user} />
-            <div className="auth-wrapper" style={{ paddingTop: 40 }}>
+            <div className="auth-wrapper">
               <Route exact path="/" component={() => <Welcome />} />
               <Route exact path="/signup" component={SignupForm} />
               <Route exact path="/login" component={() => <LoginForm login={this.login} />} />
@@ -111,7 +112,8 @@ class App extends Component {
             </div>
           </div>
         )}
-      </div>
+        <Footer />
+      </>
     );
   };
 };

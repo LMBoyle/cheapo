@@ -13,12 +13,12 @@ const userSchema = new Schema({
 	lastName: { type: String, unique: false },
   username: { type: String, unique: false, required: false },
   password: { type: String, unique: false, required: false },
-  books: [
+  goals: [
     {
       // Store ObjectIds in the array
       type: Schema.Types.ObjectId,
-      // The ObjectIds will refer to the ids in the Goals model
-      ref: "Database"
+      // The ObjectIds will refer to the ids in the Goal model
+      ref: "Goal"
     }
   ]
 });
@@ -44,7 +44,7 @@ userSchema.pre('save', function(next) {
 	}
 })
 
-// Create reference to User & export
+// Create reference to User
 const User = mongoose.model('User', userSchema);
 
 // Export =========================================================================================

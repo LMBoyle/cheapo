@@ -1,6 +1,6 @@
 // Export =========================================================================================
 
 module.exports = {
-  Database: require("./database"),
+  Goal: require("./goal"),
   User: require("./user")
 };
