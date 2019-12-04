@@ -3,6 +3,7 @@ import { Redirect, Link } from 'react-router-dom';
 import { Container, Row, Col } from '../../components/Grid';
 import { Card } from '../../components/Card';
 import { Input, FormBtn } from '../../components/Form';
+import Facebook from '../../components/social/facebook'
 
 class LoginForm extends Component {
 
@@ -57,6 +58,7 @@ class LoginForm extends Component {
                     onChange={this.handleChange}
                   />
                   <Link to="/signup"> Register </Link>
+                  <Facebook />
                   <FormBtn onClick={this.handleSubmit}> Login </FormBtn>
                 </form>
               </Card>
