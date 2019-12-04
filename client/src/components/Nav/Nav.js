@@ -13,36 +13,30 @@ const Nav = (props) => {
     greeting = (
       <Fragment>
         <ul className="nav navbar-right">
-          <li><Link to="/signup" className="logout"><i className="material-icons">person_add</i> Sign Up </Link></li>
-          <li><Link to="/login" className="logout"><i className="material-icons">verified_user</i> Login </Link></li>
+          <li><Link to="/signup" className="signUp"><i className="material-icons">person_add</i> Sign Up </Link></li>
+          <li><Link to="/login" className="login"><i className="material-icons">verified_user</i> Login </Link></li>
         </ul>
       </Fragment>
     )
   } else if (props.user.firstName) {
     greeting = (
       <Fragment>
-        <div className="row">
-          <div className="col-md text-center userName">
-            Welcome back, <strong>{props.user.firstName}</strong>
-          </div>
-          <div className="col-md-3 text-right">
-            <Link to="/profile"><i class="material-icons">person</i> User Profile </Link>
-            <Link to="/" className="logout" onClick={props.logout}><i class="material-icons">cancel</i> Logout </Link>
-          </div>
+        <div className="text-right">
+          <Link to="/profile"><i className="icon-user"></i> User Profile </Link>
+          <Link to="/" className="logout" onClick={props.logout}><i className="icon-remove-sign"></i> Logout </Link>
+          <Link to="/goals" className="goals"><i className="icon-download-alt"></i> Goals </Link>
+          <Link to="/friends" className="friends"><i className="icon-group"></i> Friends </Link>
         </div>
       </Fragment>
     )
   } else if (props.user.username) {
     greeting = (
       <Fragment>
-        <div className="row">
-          <div className="col-md text-center userName">
-            Welcome back, <strong>{props.user.username}</strong>
-          </div>
-          <div className="col-md-3 text-right">
-            <Link to="/profile"><i class="material-icons">person</i> User Profile </Link>
-            <Link to="/" className="logout" onClick={props.logout}><i class="material-icons">cancel</i> Logout </Link>
-          </div>
+        <div className="text-right">
+          <Link to="/profile"><i className="icon-user"></i> User Profile </Link>
+          <Link to="/" className="logout" onClick={props.logout}><i className="icon-remove-sign"></i> Logout </Link>
+          <Link to="/goals" className="goals"><i className="icon-download-alt"></i> Goals </Link>
+          <Link to="/friends" className="friends"><i className="icon-group"></i> Friends </Link>
         </div>
       </Fragment>
     )
