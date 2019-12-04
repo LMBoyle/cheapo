@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import FacebookLogin from 'react-facebook-login';  
+// import FacebookLogin from 'react-facebook-login';npme
+import FacebookLogin from 'react-facebook-login'
 
 export default class facebook extends Component {
     state = {
@@ -10,7 +11,7 @@ export default class facebook extends Component {
         picture: ''
     };
 
-    responseFacebook = response => {
+responseFacebook = response => {
         console.log(response);
     }
 
@@ -18,22 +19,18 @@ export default class facebook extends Component {
     componentClicked = () => console.log("clicked")
     
     render() {
-        let fbContent;
-
-        if (this.state.isLoggedIn) {
-            fbContent = null;
+        
+            return (    
             
-        } else {
-            fbContent = (<FacebookLogin
-                appId="510863782846510"
-                autoLoad={true}
-                fields="name,email,picture"
-                onClick={this.conponentClicked}
-                callback={this.responseFacebook} />);
-        }
-        return (
-            <div>{fbContent}</div>
-        )
+                <FacebookLogin
+                    appId="510863782846510"
+                    autoLoad={true}
+                    fields="name,email,picture"
+                    onClick={this.conponentClicked}
+                    callback={this.responseFacebook} />
+                    )
+                        
+        
     }
 }
 
