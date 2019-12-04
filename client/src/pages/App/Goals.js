@@ -114,7 +114,12 @@ class Goals extends Component {
           </Row>
             </div>
             
-            <div className="tab-pane fade" id="see" role="tabpanel" aria-labelledby="profile-tab">stuff</div>
+            <div className="tab-pane fade" id="see" role="tabpanel" aria-labelledby="profile-tab">
+              <Card title="Your goals">
+                
+                
+              </Card>
+            </div>
           </div>
 
         </NavTab>
