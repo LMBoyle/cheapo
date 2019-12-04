@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from 'react-router-dom';
 
+
 // Pages
 import LoginForm from "./pages/Auth/LoginForm"
 import SignupForm from "./pages/Auth/SignupForm"
@@ -13,8 +14,10 @@ import Friends from "./pages/App/Friends";
 import Profile from "./pages/App/Profile";
 import NoMatch from "./pages/NoMatch/NoMatch";
 
+
 // Components
 import Nav from "./components/Nav";
+import Facebook from '.components /social/facebook'
 import Footer from "./components/Footer"
 
 // Other
@@ -105,6 +108,7 @@ class App extends Component {
               <Route exact path="/" component={() => <Welcome />} />
               <Route exact path="/signup" component={SignupForm} />
               <Route exact path="/login" component={() => <LoginForm login={this.login} />} />
+              <Route exact path="/facebook" component={() => <Facebook login={this.login} />} />
             </div>
           </div>
         )}
