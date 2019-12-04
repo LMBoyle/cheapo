@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from 'react-router-dom';
 
+
 // Pages
 import LoginForm from "./pages/Auth/LoginForm"
 import SignupForm from "./pages/Auth/SignupForm"
@@ -12,6 +13,7 @@ import Goals from "./pages/App/Goals";
 import Friends from "./pages/App/Friends";
 import Profile from "./pages/App/Profile";
 import NoMatch from "./pages/NoMatch/NoMatch";
+
 
 // Components
 import Nav from "./components/Nav";
