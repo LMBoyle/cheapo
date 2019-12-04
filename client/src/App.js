@@ -17,7 +17,6 @@ import NoMatch from "./pages/NoMatch/NoMatch";
 
 // Components
 import Nav from "./components/Nav";
-import Facebook from '.components /social/facebook'
 import Footer from "./components/Footer"
 
 // Other
@@ -108,7 +107,6 @@ class App extends Component {
               <Route exact path="/" component={() => <Welcome />} />
               <Route exact path="/signup" component={SignupForm} />
               <Route exact path="/login" component={() => <LoginForm login={this.login} />} />
-              <Route exact path="/facebook" component={() => <Facebook login={this.login} />} />
             </div>
           </div>
         )}
