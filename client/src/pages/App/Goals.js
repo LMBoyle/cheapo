@@ -8,6 +8,8 @@ import { Col, Row, Container } from "../../components/Grid";
 import { Card } from "../../components/Card"
 import { FormBtn, Input } from "../../components/Form";
 import NavTab from "../../components/NavTab";
+import { List, ListItem } from "../../components/List";
+import DeleteBtn from "../../components/DeleteBtn"
 
 // Others
 import API from "../../utils/API"
@@ -77,44 +79,59 @@ class Goals extends Component {
 
           <div className="tab-content" id="myTabContent">
             <div className="tab-pane fade show active" id="add" role="tabpanel" aria-labelledby="home-tab">
-            <Row>
-            <Col size="md-12">
-              <Card title="Your Personal Goals: ">
-                <form style={{ marginTop: 10 }}>
-                  <label htmlFor="goalName"> Goal Name: </label>
-                  <Input
-                    type="text"
-                    name="goalName"
-                    value={this.state.goalName}
-                    onChange={this.handleChange}
-                  />
-                  <label htmlFor="totalAmt"> Total Amount: </label>
-                  <Input
-                    type="text"
-                    name="totalAmt"
-                    value={this.state.totalAmt}
-                    onChange={this.handleChange}
-                  />
-                  <label htmlFor="weeklyAmt"> Weekly Amount: </label>
-                  <Input
-                    type="text"
-                    name="weeklyAmt"
-                    value={this.state.weeklyAmt}
-                    onChange={this.handleChange}
-                  />
-                  <FormBtn
-                    disabled={!(this.state.goalName && this.state.totalAmt && this.state.weeklyAmt)}
-                    onClick={this.handleSubmit}
-                  >
-                    Submit Goal!
-                </FormBtn>
-                </form>
-              </Card>
-            </Col>
-          </Row>
+              <Row>
+                <Col size="md-12">
+                  <Card title="Your Personal Goals: ">
+                    <form style={{ marginTop: 10 }}>
+                      <label htmlFor="goalName"> Goal Name: </label>
+                      <Input
+                        type="text"
+                        name="goalName"
+                        value={this.state.goalName}
+                        onChange={this.handleChange}
+                      />
+                      <label htmlFor="totalAmt"> Total Amount: </label>
+                      <Input
+                        type="text"
+                        name="totalAmt"
+                        value={this.state.totalAmt}
+                        onChange={this.handleChange}
+                      />
+                      <label htmlFor="weeklyAmt"> Weekly Amount: </label>
+                      <Input
+                        type="text"
+                        name="weeklyAmt"
+                        value={this.state.weeklyAmt}
+                        onChange={this.handleChange}
+                      />
+                      <FormBtn
+                        disabled={!(this.state.goalName && this.state.totalAmt && this.state.weeklyAmt)}
+                        onClick={this.handleSubmit}
+                      >
+                        Submit Goal!
+                      </FormBtn>
+                    </form>
+                  </Card>
+                </Col>
+              </Row>
             </div>
-            
-            <div className="tab-pane fade" id="see" role="tabpanel" aria-labelledby="profile-tab">stuff</div>
+
+            <div className="tab-pane fade" id="see" role="tabpanel" aria-labelledby="profile-tab">
+              {this.state.goals.length ? (
+                <List>
+                  {this.state.goals.map(goal => (
+                    <ListItem key={goal._id}>
+                      <strong>
+                        {goal.goalName}
+                      </strong>
+                      <DeleteBtn onClick={() => this.deleteGoal(goal._id)} />
+                    </ListItem>
+                  ))}
+                </List>
+              ) : (
+                <h3>No Results to Display</h3>
+              )}
+            </div>
           </div>
 
         </NavTab>

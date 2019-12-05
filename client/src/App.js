@@ -14,14 +14,12 @@ import Friends from "./pages/App/Friends";
 import Profile from "./pages/App/Profile";
 import NoMatch from "./pages/NoMatch/NoMatch";
 
-
 // Components
 import Nav from "./components/Nav";
 import Footer from "./components/Footer"
 
 // Other
 import AUTH from "./utils/AUTH"
-
 
 // Functions ======================================================================================
 

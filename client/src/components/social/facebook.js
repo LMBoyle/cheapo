@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import FacebookLogin from 'react-facebook-login';npme
 import FacebookLogin from 'react-facebook-login'
 
 export default class facebook extends Component {
