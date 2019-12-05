@@ -25,6 +25,7 @@ class Goals extends Component {
       goalName: '',
       weeklyAmt: '',
       totalAmt: '',
+      progressComplete: 0
     }
   }
 
@@ -123,7 +124,7 @@ class Goals extends Component {
                       weekly={goal.weeklyAmt}
                       strokeWidth="10"
                       sqSize="200"
-                      percentage={/*this.state.percentage*/ 50}
+                      percentage={goal.progressComplete}
                     />
                   ))}
                 </ListGoals>
