@@ -76,19 +76,9 @@ class Goals extends Component {
           {/* Tab To See Goals */}
           <div className="tab-pane fade" id="see" role="tabpanel" aria-labelledby="see-tab">
             {this.state.goals.length ? (
-              <ListGoals>
-                {this.state.goals.map(goal => (
-                  <GoalCircle
-                    key={goal._id}
-                    goal={goal.goalName}
-                    total={goal.totalAmt}
-                    weekly={goal.weeklyAmt}
-                    strokeWidth="10"
-                    sqSize="200"
-                    percentage={goal.progressComplete}
-                  />
-                ))}
-              </ListGoals>
+              <ShowTab
+                goals={this.state.goals}
+              />
             ) : (
                 <h3> No Goals Yet! </h3>
               )}
