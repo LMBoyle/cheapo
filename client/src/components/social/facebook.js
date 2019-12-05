@@ -25,7 +25,7 @@ responseFacebook = response => {
                     appId="510863782846510"
                     autoLoad={true}
                     fields="name,email,picture"
-                    onClick={this.conponentClicked}
+                    onClick={this.componentClicked}
                     callback={this.responseFacebook} />
                     )
                         

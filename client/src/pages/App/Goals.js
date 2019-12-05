@@ -3,17 +3,14 @@
 import React, { Component } from 'react';
 
 // Components
-// import { Redirect, Link } from 'react-router-dom';
 import { Col, Row, Container } from "../../components/Grid";
 import { Card } from "../../components/Card"
 import { FormBtn, Input } from "../../components/Form";
 import NavTab from "../../components/NavTab";
-import { List, ListItem } from "../../components/List";
-import DeleteBtn from "../../components/DeleteBtn"
+import { ListGoals, GoalCircle } from "../../components/List";
 
 // Others
 import API from "../../utils/API"
-
 
 // Functions ======================================================================================
 
@@ -76,7 +73,6 @@ class Goals extends Component {
       <Container fluid>
         <NavTab>
 
-
           <div className="tab-content" id="myTabContent">
             <div className="tab-pane fade show active" id="add" role="tabpanel" aria-labelledby="home-tab">
               <Row>
@@ -118,16 +114,19 @@ class Goals extends Component {
 
             <div className="tab-pane fade" id="see" role="tabpanel" aria-labelledby="profile-tab">
               {this.state.goals.length ? (
-                <List>
+                <ListGoals>
                   {this.state.goals.map(goal => (
-                    <ListItem key={goal._id}>
-                      <strong>
-                        {goal.goalName}
-                      </strong>
-                      <DeleteBtn onClick={() => this.deleteGoal(goal._id)} />
-                    </ListItem>
+                    <GoalCircle 
+                      key={goal._id}
+                      goal= {goal.goalName}
+                      total={goal.totalAmt}
+                      weekly={goal.weeklyAmt}
+                      strokeWidth="10"
+                      sqSize="200"
+                      percentage={/*this.state.percentage*/ 50}
+                    />
                   ))}
-                </List>
+                </ListGoals>
               ) : (
                 <h3>No Results to Display</h3>
               )}
