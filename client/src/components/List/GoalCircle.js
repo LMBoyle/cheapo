@@ -1,10 +1,15 @@
+// Imports ========================================================================================
+
 import React, { Component } from "react";
 import "./List.css"
+
+// Functions ======================================================================================
 
 export class GoalCircle extends Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
       sqSize: 200,
       percentage: 50,
@@ -34,7 +39,8 @@ export class GoalCircle extends Component {
           cx={this.props.sqSize / 2}
           cy={this.props.sqSize / 2}
           r={radius}
-          strokeWidth={`${this.props.strokeWidth}px`} />
+          strokeWidth={`${this.props.strokeWidth}px`} 
+        />
         <circle
           className="circle-progress"
           cx={this.props.sqSize / 2}
@@ -46,13 +52,15 @@ export class GoalCircle extends Component {
           style={{
             strokeDasharray: dashArray,
             strokeDashoffset: dashOffset
-          }} />
+          }} 
+        />
         <text
           className="circle-text"
           x="50%"
           y="50%"
           dy=".3em"
-          textAnchor="middle">
+          textAnchor="middle"
+        >
           {`${this.props.percentage}%`}
         </text>
       </svg>
