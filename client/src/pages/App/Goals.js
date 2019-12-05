@@ -6,7 +6,6 @@ import React, { Component } from 'react';
 import { Container } from "../../components/Grid";
 import NavTab from "../../components/NavTab";
 import { NewTab, ShowTab, EditTab } from "../../components/Goals"
-import { ListGoals, GoalCircle } from "../../components/List";
 
 // Others
 import API from "../../utils/API"
@@ -23,34 +22,45 @@ class Goals extends Component {
       goalName: '',
       weeklyAmt: '',
       totalAmt: '',
-      progressComplete: 0
+      totalSavedAmt: '',
+      weeklySavedAmt: ''
     }
   }
 
+  // When page loads, load the goals
   componentDidMount() {
     this.loadGoals();
   }
 
+  // Request to load goals
   loadGoals = () => {
     API.getGoals()
       .then(res =>
-        this.setState({ goals: res.data.goals, goalName: "", weeklyAmt: "", totalAmt: "" })
+        this.setState({ goals: res.data.goals, goalName: "", weeklyAmt: "", totalAmt: "", totalSavedAmt: "", weeklySavedAmt: "" })
       )
       .catch(err => console.log(err));
   };
 
+  // Request to delete goal
   deleteGoal = id => {
     API.deleteGoal(id)
       .then(res => this.loadGoals())
       .catch(err => console.log(err));
   };
 
+  // When user types into add tab
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
 
+  // When user types into edit tab
+  handleAdd = (e) => {
+
+  }
+
+  // When user clicks submit button on add tab
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.goalName && this.state.totalAmt && this.state.weeklyAmt) {
@@ -65,7 +75,6 @@ class Goals extends Component {
   }
 
   render() {
-
     console.log(this.state);
 
     return (

@@ -7,7 +7,6 @@ import { Col, Row } from "../../components/Grid";
 import { Card } from "../../components/Card"
 import { FormBtn, Input } from "../../components/Form";
 
-
 // Functions ======================================================================================
 
 export const NewTab = props => {
