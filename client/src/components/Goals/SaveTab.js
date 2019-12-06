@@ -19,7 +19,7 @@ export const SaveTab = props => {
           </button>
           <div className="dropdown-menu">
             {goals.map(goal => (
-              <button key={goal._id} className="dropdown-item goalDropdown" onClick={() => handleSelect(goal.goalName)}> {goal.goalName} </button>
+              <button key={goal._id} className="dropdown-item goalDropdown" onClick={() => handleSelect(goal._id)}> {goal.goalName} </button>
             ))} 
           </div>
         </div>

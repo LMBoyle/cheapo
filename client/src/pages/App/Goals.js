@@ -25,7 +25,8 @@ class Goals extends Component {
       totalAmt: '',
       totalSavedAmt: '',
       weeklySavedAmt: '',
-      amtToSave: '',
+      selectedGoal: '',
+      amtToSave: ''
     }
   }
 
@@ -38,7 +39,7 @@ class Goals extends Component {
   loadGoals = () => {
     API.getGoals()
       .then(res =>
-        this.setState({ goals: res.data.goals, goalName: "", weeklyAmt: "", totalAmt: "", totalSavedAmt: "", weeklySavedAmt: "", amtToSave: '' })
+        this.setState({ goals: res.data.goals, goalName: "", weeklyAmt: "", totalAmt: "", totalSavedAmt: "", weeklySavedAmt: "", selectedGoal: '', amtToSave: '' })
       )
       .catch(err => console.log(err));
   };
@@ -58,10 +59,16 @@ class Goals extends Component {
   }
 
   // When user clicks on dropdown
-  handleSelect = selected => {
+  handleSelect = id => {
     // Find the goal selected
-    console.log(selected)
+    console.log(id)
     // Get the data and send it to state
+    API.getGoal(id)
+      .then(res => 
+        this.setState({ selectedGoal: res.data.goals.goalName, totalSavedAmt: res.data.goals.totalSavedAmt, totalAmt: res.data.goals.totalAmt}),
+        console.log(this.state)
+      )
+      .catch(err => console.log(err));
   }
 
   // When user types into edit tab
