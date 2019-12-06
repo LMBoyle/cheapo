@@ -5,6 +5,7 @@ import React from "react";
 // Components
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
+import { CardImg } from "../../components/Card";
 
 
 // Functions ======================================================================================

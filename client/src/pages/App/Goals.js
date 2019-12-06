@@ -111,7 +111,6 @@ class Goals extends Component {
                     handleSubmit={this.handleSubmit}
                   />
                 </div>
-
                 {/* Tab To Add to Goal or Edit */}
                 {/* 
                 <div className="tab-pane fade" id="save" role="tabpanel" aria-labelledby="save-tab"> 
