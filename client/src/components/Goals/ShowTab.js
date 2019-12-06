@@ -13,7 +13,7 @@ class ShowTab extends Component {
   // Calculate the percent saved
   calcPercent(goal, saved) {
     console.log(goal, saved)
-    return((goal/100)*saved)
+    return((saved/goal)*100)
   }
   
   render() {
