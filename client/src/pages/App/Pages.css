@@ -24,3 +24,6 @@ div.container {
 
 /* Goals ========================================================================================== */
 
+.goalDropdown {
+  text-transform: capitalize;
+}

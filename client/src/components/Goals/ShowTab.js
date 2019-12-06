@@ -19,17 +19,17 @@ class ShowTab extends Component {
   render() {
     return (
       <>
-      {this.props.goals.map(goal => (
-        <GoalCircle
-          key={goal._id}
-          goal={goal.goalName}
-          total={goal.totalAmt}
-          weekly={goal.weeklyAmt}
-          strokeWidth="10"
-          sqSizeProp="200"
-          percentage={this.calcPercent(goal.totalAmt, goal.totalSavedAmt)}
-        />
-      ))}
+        {this.props.goals.map(goal => (
+          <GoalCircle
+            key={goal._id}
+            goal={goal.goalName}
+            total={goal.totalAmt}
+            weekly={goal.weeklyAmt}
+            strokeWidth="10"
+            sqSizeProp="200"
+            percentage={this.calcPercent(goal.totalAmt, goal.totalSavedAmt)}
+          />
+        ))}
       </>
     )
   }

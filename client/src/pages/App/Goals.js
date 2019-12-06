@@ -24,7 +24,8 @@ class Goals extends Component {
       weeklyAmt: '',
       totalAmt: '',
       totalSavedAmt: '',
-      weeklySavedAmt: ''
+      weeklySavedAmt: '',
+      amtToSave: '',
     }
   }
 
@@ -37,7 +38,7 @@ class Goals extends Component {
   loadGoals = () => {
     API.getGoals()
       .then(res =>
-        this.setState({ goals: res.data.goals, goalName: "", weeklyAmt: "", totalAmt: "", totalSavedAmt: "", weeklySavedAmt: "" })
+        this.setState({ goals: res.data.goals, goalName: "", weeklyAmt: "", totalAmt: "", totalSavedAmt: "", weeklySavedAmt: "", amtToSave: '' })
       )
       .catch(err => console.log(err));
   };
@@ -56,9 +57,20 @@ class Goals extends Component {
     });
   }
 
+  // When user clicks on dropdown
+  handleSelect = selected => {
+    // Find the goal selected
+    console.log(selected)
+    // Get the data and send it to state
+  }
+
   // When user types into edit tab
   handleAdd = (e) => {
-
+    e.preventDefault();
+    // Get the goal selected
+    // Add existing amount to amount to add
+    // Send API to update
+    // Load Goals
   }
 
   // When user clicks submit button on add tab
@@ -113,15 +125,18 @@ class Goals extends Component {
                 </div>
 
                 {/* Tab To Add to Goal or Edit */}
-                {/* 
                 <div className="tab-pane fade" id="save" role="tabpanel" aria-labelledby="save-tab"> 
                   <SaveTab
                     goals={this.state.goals}
+                    selectedGoal={this.state.selectedGoal}
+                    totalAmt={this.state.totalAmt}
+                    totalSavedAmt={this.state.totalSavedAmt}
+                    amtToSave={this.state.amtToSave}
                     handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmit}
+                    handleAdd={this.handleAdd}
+                    handleSelect={this.handleSelect}
                   />
                 </div>
-                */}
               
               </div>
             </Container>
