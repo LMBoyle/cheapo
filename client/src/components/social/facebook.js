@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import FacebookLogin from 'react-facebook-login';npme
 import FacebookLogin from 'react-facebook-login'
 
 export default class facebook extends Component {
@@ -26,7 +25,7 @@ responseFacebook = response => {
                     appId="510863782846510"
                     autoLoad={true}
                     fields="name,email,picture"
-                    onClick={this.conponentClicked}
+                    onClick={this.componentClicked}
                     callback={this.responseFacebook} />
                     )
                         
