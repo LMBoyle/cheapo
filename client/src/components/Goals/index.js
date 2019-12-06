@@ -2,4 +2,4 @@
 
 export * from "./NewTab";
 export * from "./ShowTab";
-export * from "./EditTab";
+export * from "./SaveTab";

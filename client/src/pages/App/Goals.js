@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 // Components
 import { Container } from "../../components/Grid";
 import NavTab from "../../components/NavTab";
-import { NewTab, ShowTab, EditTab } from "../../components/Goals"
+import { ShowTab, NewTab, SaveTab } from "../../components/Goals"
 
 // Others
 import API from "../../utils/API"
@@ -83,7 +83,7 @@ class Goals extends Component {
         <div className="tab-content" id="myTabContent">
 
           {/* Tab To See Goals */}
-          <div className="tab-pane fade" id="see" role="tabpanel" aria-labelledby="see-tab">
+          <div className="tab-pane fade show active" id="see" role="tabpanel" aria-labelledby="see-tab">
             {this.state.goals.length ? (
               <ShowTab
                 goals={this.state.goals}
@@ -94,7 +94,7 @@ class Goals extends Component {
           </div>
 
           {/* Tab To Add Goals */}
-          <div className="tab-pane fade show active" id="add" role="tabpanel" aria-labelledby="add-tab">
+          <div className="tab-pane fade" id="add" role="tabpanel" aria-labelledby="add-tab">
             <NewTab
               goalName={this.state.goalName}
               totalAmt={this.state.totalAmt}
@@ -106,8 +106,8 @@ class Goals extends Component {
 
           {/* Tab To Add to Goal or Edit */}
           {/* 
-          <div className="tab-pane fade" id="edit" role="tabpanel" aria-labelledby="edit-tab"> 
-            <EditTab
+          <div className="tab-pane fade" id="save" role="tabpanel" aria-labelledby="save-tab"> 
+            <SaveTab
               goals={this.state.goals}
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}

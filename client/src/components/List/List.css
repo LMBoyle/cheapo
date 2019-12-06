@@ -32,6 +32,9 @@
   border-bottom: none;
 }
 
+.goal {
+  text-transform: capitalize;
+}
 
 .circle-background,
 .circle-progress {
