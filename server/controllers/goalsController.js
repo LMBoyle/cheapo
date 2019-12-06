@@ -33,7 +33,7 @@ module.exports = {
         })
         .catch(err => res.status(422).json(err));
     } else {
-      return res.json({ book: null });
+      return res.json({ goals: null });
     }
   },
   create: function(req, res) {

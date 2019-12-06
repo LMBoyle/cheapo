@@ -16,7 +16,7 @@ function NavTab(props) {
           <a className="nav-link" data-toggle="tab" tole="tab" href="#add">Add new goal </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" data-toggle="tab" role="tab" href="#edit">Add to your goals </a>
+          <a className="nav-link" data-toggle="tab" role="tab" href="#save">Add to your goals </a>
         </li>
       </ul>
 
