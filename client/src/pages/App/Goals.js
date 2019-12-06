@@ -11,6 +11,8 @@ import { ShowTab, NewTab, SaveTab } from "../../components/Goals"
 // Others
 import API from "../../utils/API"
 
+let sum;
+
 // Functions ======================================================================================
 
 class Goals extends Component {
@@ -26,6 +28,7 @@ class Goals extends Component {
       totalSavedAmt: '',
       weeklySavedAmt: '',
       selectedGoal: '',
+      selectedId: '',
       amtToSave: ''
     }
   }
@@ -39,7 +42,7 @@ class Goals extends Component {
   loadGoals = () => {
     API.getGoals()
       .then(res =>
-        this.setState({ goals: res.data.goals, goalName: "", weeklyAmt: "", totalAmt: "", totalSavedAmt: "", weeklySavedAmt: "", selectedGoal: '', amtToSave: '' })
+        this.setState({ goals: res.data.goals, goalName: "", weeklyAmt: "", totalAmt: "", totalSavedAmt: "", weeklySavedAmt: "", selectedGoal: '', selectedId: '', amtToSave: '' })
       )
       .catch(err => console.log(err));
   };
@@ -61,12 +64,11 @@ class Goals extends Component {
   // When user clicks on dropdown
   handleSelect = id => {
     // Find the goal selected
-    console.log(id)
+    // console.log(id)
     // Get the data and send it to state
     API.getGoal(id)
       .then(res => 
-        this.setState({ selectedGoal: res.data.goals.goalName, totalSavedAmt: res.data.goals.totalSavedAmt, totalAmt: res.data.goals.totalAmt}),
-        console.log(this.state)
+        this.setState({ selectedGoal: res.data.goals.goalName, selectedId: res.data.goals._id, totalSavedAmt: res.data.goals.totalSavedAmt, totalAmt: res.data.goals.totalAmt}),
       )
       .catch(err => console.log(err));
   }
@@ -74,10 +76,14 @@ class Goals extends Component {
   // When user types into edit tab
   handleAdd = (e) => {
     e.preventDefault();
-    // Get the goal selected
     // Add existing amount to amount to add
+    sum = Number(this.state.totalSavedAmt) + Number(this.state.amtToSave)
     // Send API to update
-    // Load Goals
+    API.updateGoal(this.state.selectedId, {
+      totalSavedAmt: sum
+    })
+      .then(res => this.loadGoals())
+      .catch(err => console.log(err));
   }
 
   // When user clicks submit button on add tab

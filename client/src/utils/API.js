@@ -16,6 +16,9 @@ export default {
   getGoal: function(id) {
     return axios.get("/api/goals/" + id);
   },
+  updateGoal: function(id, goalData) {
+    return axios.put("/api/goals/" + id, goalData)
+  },
   // Deletes the goal with the given id
   deleteGoal: function(id) {
     return axios.delete("/api/goals/" + id);

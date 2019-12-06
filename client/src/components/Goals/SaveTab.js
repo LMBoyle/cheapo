@@ -25,7 +25,7 @@ export const SaveTab = props => {
         </div>
       </Col>
       <Col size="md-6">
-        <h1> {selectedGoal} </h1>
+        <h1 id="selectedGoalTitle"> {selectedGoal} </h1>
         <h2> You have saved ${totalSavedAmt} towards your goal of {totalAmt} </h2>
         <form style={{ marginTop: 10 }}>
           <label htmlFor="amtToSave"> Savings To Add: </label>
