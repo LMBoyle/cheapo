@@ -8,7 +8,7 @@ function NavTab(props) {
   return (
     <div>
       <br></br>
-      <ul className="nav nav-tabs">
+      <ul className="nav nav-tabs nav-fill">
         <li className="nav-item">
           <a className="nav-link" data-toggle="tab" role="tab" href="#see">See your goals </a>
         </li>

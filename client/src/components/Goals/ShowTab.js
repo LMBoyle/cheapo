@@ -4,7 +4,6 @@ import React, { Component } from "react";
 
 // Components
 // import { Col, Row } from "../../components/Grid";
-// import { Card } from "../../components/Card"
 import { ListGoals, GoalCircle } from "../../components/List";
 
 

@@ -32,6 +32,7 @@
   border-bottom: none;
 }
 
+/* Goal Circles */
 .goal {
   text-transform: capitalize;
 }
@@ -46,7 +47,7 @@
 }
 
 .circle-progress {
-  stroke: red;
+  stroke: #577720;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -54,5 +55,5 @@
 .circle-text {
   font-size: 3em;
   font-weight: bold;
-  fill: red;
+  fill: #650D1B;
 }
