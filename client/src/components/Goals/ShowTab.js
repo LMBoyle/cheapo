@@ -13,23 +13,23 @@ class ShowTab extends Component {
   // Calculate the percent saved
   calcPercent(goal, saved) {
     console.log(goal, saved)
-    return((goal/100)*saved)
+    return((saved/goal)*100)
   }
   
   render() {
     return (
       <>
-      {this.props.goals.map(goal => (
-        <GoalCircle
-          key={goal._id}
-          goal={goal.goalName}
-          total={goal.totalAmt}
-          weekly={goal.weeklyAmt}
-          strokeWidth="10"
-          sqSizeProp="200"
-          percentage={this.calcPercent(goal.totalAmt, goal.totalSavedAmt)}
-        />
-      ))}
+        {this.props.goals.map(goal => (
+          <GoalCircle
+            key={goal._id}
+            goal={goal.goalName}
+            total={goal.totalAmt}
+            weekly={goal.weeklyAmt}
+            strokeWidth="10"
+            sqSizeProp="200"
+            percentage={this.calcPercent(goal.totalAmt, goal.totalSavedAmt)}
+          />
+        ))}
       </>
     )
   }

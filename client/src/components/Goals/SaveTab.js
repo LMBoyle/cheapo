@@ -1,70 +1,49 @@
 // Imports ========================================================================================
 
-import React, { Component } from "react";
+import React from "react";
 
 // Components
 import { Col, Row } from "../Grid";
-import { Card } from "../Card"
 import { FormBtn, Input } from "../Form";
 
-
 // Functions ======================================================================================
-{/*
-class EditTab extends Component {
-  constructor() {
-    super(props);
 
-    this.state = {
-      goals: [],
-      goalName: '',
-      weeklyAmt: '',
-      totalAmt: '',
-    }
-  }
+export const SaveTab = props => {
+  const { goals, selectedGoal, totalAmt, totalSavedAmt, amtToSave, handleChange, handleAdd, handleSelect } = props
+  return (
+    <Row>
+      <Col size="md-6">
+        <div className="btn-group dropright">
+          <button type="button" className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Goals
+          </button>
+          <div className="dropdown-menu">
+            {goals.map(goal => (
+              <button key={goal._id} className="dropdown-item goalDropdown" onClick={() => handleSelect(goal._id)}> {goal.goalName} </button>
+            ))} 
+          </div>
+        </div>
+      </Col>
+      <Col size="md-6">
+        <h1 id="selectedGoalTitle"> {selectedGoal} </h1>
+        <h2> You have saved ${totalSavedAmt} towards your goal of {totalAmt} </h2>
+        <form style={{ marginTop: 10 }}>
+          <label htmlFor="amtToSave"> Savings To Add: </label>
+          <Input
+            type="number"
+            name="amtToSave"
+            value={amtToSave}
+            onChange={handleChange}
+          />
+          <FormBtn
+            disabled={!(amtToSave)}
+            onClick={handleAdd}
+          >
+            Add To Goal!
+          </FormBtn>
+        </form>
 
-  render() {
-    return (
-      <Row>
-        <Col size="md-12">
-          <Card title="Your Personal Goals: ">
-            <form style={{ marginTop: 10 }}>
-              <label htmlFor="goalName"> Goal Name: </label>
-              <Input
-                type="text"
-                name="goalName"
-                value={goalName}
-                onChange={handleChange}
-              />
-              <label htmlFor="totalAmt"> Total Amount: </label>
-              <Input
-                type="text"
-                name="totalAmt"
-                value={totalAmt}
-                onChange={handleChange}
-              />
-              <label htmlFor="weeklyAmt"> Weekly Amount: </label>
-              <Input
-                type="text"
-                name="weeklyAmt"
-                value={weeklyAmt}
-                onChange={handleChange}
-              />
-              <FormBtn
-                disabled={!(goalName && totalAmt && weeklyAmt)}
-                onClick={handleSubmit}
-              >
-                Submit Goal!
-              </FormBtn>
-            </form>
-          </Card>
-        </Col>
-      </Row>
-    )
-  }
+      </Col>
+    </Row>
+  )
 }
-
-// Export =========================================================================================
-
-export default EditTab;
-
-*/}
