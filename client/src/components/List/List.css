@@ -31,3 +31,29 @@
 .list-overflow-container li:last-child {
   border-bottom: none;
 }
+
+/* Goal Circles */
+.goal {
+  text-transform: capitalize;
+}
+
+.circle-background,
+.circle-progress {
+  fill: none;
+}
+
+.circle-background {
+  stroke: #ddd;
+}
+
+.circle-progress {
+  stroke: #577720;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.circle-text {
+  font-size: 3em;
+  font-weight: bold;
+  fill: #650D1B;
+}
