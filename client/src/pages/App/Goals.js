@@ -13,6 +13,33 @@ import API from "../../utils/API"
 
 let sum;
 
+const data = {
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  datasets: [
+    {
+      label: 'My First dataset',
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: 'rgba(75,192,192,0.4)',
+      borderColor: '#BF7E04',
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: '#577720',
+      pointBackgroundColor: '#fff',
+      pointBorderWidth: 1,
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: '#577720',
+      pointHoverBorderColor: 'rgba(220,220,220,1)',
+      pointHoverBorderWidth: 2,
+      pointRadius: 1,
+      pointHitRadius: 10,
+      data: [65, 59, 80, 81, 56, 55, 40]
+    }
+  ]
+};
+
 // Functions ======================================================================================
 
 class Goals extends Component {
@@ -100,13 +127,15 @@ class Goals extends Component {
     }
   }
 
+
+
   render() {
     console.log(this.state);
 
     return (
       <Container>
         <Card
-          styleCard={{"box-shadow":"0px 0px 10px -3px #577720", marginBottom: 20}}
+          cardClass={"cardWrap"}
           styleBody={{padding: "0 0 50px 0"}}
         >
           {/* Tabs for Goal Page */}
@@ -147,6 +176,7 @@ class Goals extends Component {
                     handleChange={this.handleChange}
                     handleAdd={this.handleAdd}
                     handleSelect={this.handleSelect}
+                    data={data}
                   />
                 </div>
               

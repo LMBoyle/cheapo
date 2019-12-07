@@ -5,7 +5,7 @@ import React from "react";
 // Components
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
-import { CardImg } from "../../components/Card";
+import { Card } from "../../components/Card";
 
 
 // Functions ======================================================================================
@@ -13,13 +13,17 @@ import { CardImg } from "../../components/Card";
 function Profile() {
   return (
     <Container fluid>
-      <Row>
-        <Col size="md-12">
-          <Jumbotron>
-            <h1> User Profile </h1>
-          </Jumbotron>
-        </Col>
-      </Row>
+      <Card
+        cardClass={"cardWrap"}
+      >
+        <Row>
+          <Col size="md-12">
+            <Jumbotron>
+              <h1> User Profile </h1>
+            </Jumbotron>
+          </Col>
+        </Row>
+      </Card>
     </Container>
   );
 }

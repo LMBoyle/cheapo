@@ -30,6 +30,7 @@ export const NewTab = props => {
               name="totalAmt"
               value={totalAmt}
               onChange={handleChange}
+              prepend="true"
             />
             <label htmlFor="weeklyAmt"> Weekly Amount: </label>
             <Input
@@ -37,6 +38,7 @@ export const NewTab = props => {
               name="weeklyAmt"
               value={weeklyAmt}
               onChange={handleChange}
+              prepend="true"
             />
             <FormBtn
               disabled={!(goalName && totalAmt && weeklyAmt)}

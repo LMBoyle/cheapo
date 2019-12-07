@@ -28,3 +28,23 @@ div.container {
 #selectedGoalTitle {
   text-transform: capitalize;
 }
+
+/* Login ========================================================================================== */
+
+.sideLine {
+  border-bottom: 1px solid #BF7E04;
+  width: 43%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sepText {
+  width: 11%;
+  display: inline-block;
+  color: #650D1B;
+  text-align: center;
+}
+
+#root {
+  background-color: blue
+}

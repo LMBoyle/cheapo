@@ -19,7 +19,7 @@ class ShowTab extends Component {
   render() {
     return (
       <>
-        {this.props.goals.map(goal => (
+        { this.props.goals.map(goal => (
           <GoalCircle
             key={goal._id}
             goal={goal.goalName}
