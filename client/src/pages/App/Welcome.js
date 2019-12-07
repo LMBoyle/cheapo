@@ -8,13 +8,19 @@ import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import { CardHeader, CardImg, Card } from "../../components/Card"
 
+// Images
+const savingJars = require("../../assets/img/savingJars.jpg");
+const friendsMoney = require("../../assets/img/friendsMoney.jpg")
+
+
 // Functions ======================================================================================
 
 function Welcome() {
   return (
     <div className="container my-0">
       <Card
-        styleCard={{"box-shadow":"0px 0px 10px -3px #577720", marginBottom: 20}}
+        cardClass={"cardWrap"}
+        styleCard={{minHeight: 1028}}
         styleBody={{padding: "0 0 50px 0"}}
       >
         <Row>
@@ -31,8 +37,8 @@ function Welcome() {
           <Row>
             <Col size="md-6">
               <CardImg
-                src="/assets/img/savingJars.jpg"
-                alt="Saving Jars"
+                src={savingJars}
+                alt="Jars full of change with labels for different saving goals"
               />
             </Col>
             <Col size="md-6">
@@ -57,8 +63,8 @@ function Welcome() {
             </Col>
             <Col size="md-6">
               <CardImg
-                src="/assets/img/friendsMoney.jpg"
-                alt="Saving Jars"
+                src={friendsMoney}
+                alt="Group of friends reaching for falling money"
               />
             </Col>
           </Row>

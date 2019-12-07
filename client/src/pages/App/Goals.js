@@ -106,7 +106,7 @@ class Goals extends Component {
     return (
       <Container>
         <Card
-          styleCard={{"box-shadow":"0px 0px 10px -3px #577720", marginBottom: 20}}
+          cardClass={"cardWrap"}
           styleBody={{padding: "0 0 50px 0"}}
         >
           {/* Tabs for Goal Page */}
