@@ -6,10 +6,13 @@ import React from "react";
 import { Col, Row } from "../Grid";
 import { FormBtn, Input } from "../Form";
 
+// Other
+import { Line } from "react-chartjs-2"
+
 // Functions ======================================================================================
 
 export const SaveTab = props => {
-  const { goals, selectedGoal, totalAmt, totalSavedAmt, amtToSave, handleChange, handleAdd, handleSelect } = props
+  const { goals, selectedGoal, totalAmt, totalSavedAmt, amtToSave, handleChange, handleAdd, handleSelect, data } = props
   return (
     <Row>
       <Col size="md-6">
@@ -46,6 +49,8 @@ export const SaveTab = props => {
             >
               Add To Goal!
             </FormBtn>
+
+            <Line data={data}/>
           </form>
         ) : (
           <h2> Select A Goal To Update </h2>
