@@ -25,18 +25,21 @@ export const SaveTab = props => {
         </div>
       </Col>
       <Col size="md-6">
-        {totalSavedAmt ? (
+        { selectedGoal ? (
           <form style={{ marginTop: 10 }}>
             <h1 id="selectedGoalTitle"> {selectedGoal} </h1>
             <h2> You have saved ${totalSavedAmt} towards your goal of {totalAmt} </h2>
           
             <label htmlFor="amtToSave"> Savings To Add: </label>
+            
             <Input
               type="number"
               name="amtToSave"
               value={amtToSave}
               onChange={handleChange}
+              prepend="true"
             />
+
             <FormBtn
               disabled={!(amtToSave)}
               onClick={handleAdd}
