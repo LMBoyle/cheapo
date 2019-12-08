@@ -1,6 +1,7 @@
 // Imports ========================================================================================
 
 import React, { Component } from 'react';
+import Moment from 'moment'
 
 // Components
 import { Container } from "../../components/Grid";
@@ -12,33 +13,6 @@ import { ShowTab, NewTab, SaveTab } from "../../components/Goals"
 import API from "../../utils/API"
 
 let sum;
-
-const data = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      fill: false,
-      lineTension: 0.1,
-      backgroundColor: 'rgba(75,192,192,0.4)',
-      borderColor: '#BF7E04',
-      borderCapStyle: 'butt',
-      borderDash: [],
-      borderDashOffset: 0.0,
-      borderJoinStyle: 'miter',
-      pointBorderColor: '#577720',
-      pointBackgroundColor: '#fff',
-      pointBorderWidth: 1,
-      pointHoverRadius: 5,
-      pointHoverBackgroundColor: '#577720',
-      pointHoverBorderColor: 'rgba(220,220,220,1)',
-      pointHoverBorderWidth: 2,
-      pointRadius: 1,
-      pointHitRadius: 10,
-      data: [65, 59, 80, 81, 56, 55, 40]
-    }
-  ]
-};
 
 // Functions ======================================================================================
 
@@ -56,7 +30,8 @@ class Goals extends Component {
       weeklySavedAmt: '',
       selectedGoal: '',
       selectedId: '',
-      amtToSave: ''
+      amtToSave: '',
+      chartData: []
     }
   }
 
@@ -69,7 +44,18 @@ class Goals extends Component {
   loadGoals = () => {
     API.getGoals()
       .then(res =>
-        this.setState({ goals: res.data.goals, goalName: "", weeklyAmt: "", totalAmt: "", totalSavedAmt: "", weeklySavedAmt: "", selectedGoal: '', selectedId: '', amtToSave: '' })
+        this.setState({ 
+          goals: res.data.goals, 
+          goalName: "", 
+          weeklyAmt: "", 
+          totalAmt: "", 
+          totalSavedAmt: "", 
+          weeklySavedAmt: "", 
+          selectedGoal: '', 
+          selectedId: '', 
+          amtToSave: '',
+          chartData: []
+        })
       )
       .catch(err => console.log(err));
   };
@@ -82,7 +68,7 @@ class Goals extends Component {
   };
 
   // When user types into add tab
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -92,29 +78,45 @@ class Goals extends Component {
   handleSelect = id => {
     // Find the goal selected
     // console.log(id)
+    this.setState({ 
+      chartLabels: [],
+      chartData: []
+    })
     // Get the data and send it to state
     API.getGoal(id)
       .then(res => 
-        this.setState({ selectedGoal: res.data.goals.goalName, selectedId: res.data.goals._id, totalSavedAmt: res.data.goals.totalSavedAmt, totalAmt: res.data.goals.totalAmt}),
+        this.setState({ 
+          selectedGoal: res.data.goals.goalName, 
+          selectedId: res.data.goals._id, 
+          totalSavedAmt: res.data.goals.totalSavedAmt, 
+          totalAmt: res.data.goals.totalAmt,
+          chartData: res.data.goals.progress
+        })
       )
       .catch(err => console.log(err));
-  }
+  };
 
   // When user types into edit tab
-  handleAdd = (e) => {
+  handleAdd = e => {
     e.preventDefault();
     // Add existing amount to amount to add
     sum = Number(this.state.totalSavedAmt) + Number(this.state.amtToSave)
     // Send API to update
     API.updateGoal(this.state.selectedId, {
-      totalSavedAmt: sum
+      totalSavedAmt: sum,
+      $push: {
+        progress: [{
+          savingAmt: this.state.amtToSave,
+          dateSaved: Moment(new Date()).format("YYYY/MM/DD")
+        }]
+      }
     })
       .then(res => this.loadGoals())
       .catch(err => console.log(err));
   }
 
   // When user clicks submit button on add tab
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     if (this.state.goalName && this.state.totalAmt && this.state.weeklyAmt) {
       API.saveGoal({
@@ -127,11 +129,7 @@ class Goals extends Component {
     }
   }
 
-
-
   render() {
-    console.log(this.state);
-
     return (
       <Container>
         <Card
@@ -145,7 +143,7 @@ class Goals extends Component {
               <div className="tab-content mt-5" id="myTabContent">
 
                 {/* Tab To See Goals */}
-                <div className="tab-pane fade show active" id="see" role="tabpanel" aria-labelledby="see-tab">
+                <div className="tab-pane fade active show" id="see" role="tabpanel" aria-labelledby="see-tab">
                   {this.state.goals.length ? (
                     <ShowTab
                       goals={this.state.goals}
@@ -165,7 +163,8 @@ class Goals extends Component {
                     handleSubmit={this.handleSubmit}
                   />
                 </div>
-                {/* Tab To Add to Goal or Edit */}
+                
+                {/* Tab To Add to Goal */}
                 <div className="tab-pane fade" id="save" role="tabpanel" aria-labelledby="save-tab"> 
                   <SaveTab
                     goals={this.state.goals}
@@ -176,7 +175,7 @@ class Goals extends Component {
                     handleChange={this.handleChange}
                     handleAdd={this.handleAdd}
                     handleSelect={this.handleSelect}
-                    data={data}
+                    chartData={this.state.chartData}
                   />
                 </div>
               
