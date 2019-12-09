@@ -41,6 +41,29 @@ module.exports = {
     });
   },
 
+  update: (req, res) => {
+    const { firstName, lastName, username, password } = req.body;
+
+    db.User.findOneAndUpdate({'username': username}, (err, userMatch) => {
+      if (userMatch){
+        return res.json({
+          error: `Sorry, already have a user with that username: ${username}`
+        }); 
+      }
+      const updatedUser = new db.User({
+        'firstName': firstName,
+        'lastName': lastName,
+        'username': username,
+        'password': password
+      });
+      updatedUser.save((err, savedUser) => {
+        if (err) return res.json(err);
+        return res.json(savedUser);
+      });
+    });
+
+  },
+
   logout: (req, res) => {
     // console.log("in userController.js, logout");
     if (req.user) {
