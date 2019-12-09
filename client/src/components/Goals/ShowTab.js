@@ -12,8 +12,7 @@ import { ListGoals, GoalCircle } from "../../components/List";
 class ShowTab extends Component {
   // Calculate the percent saved
   calcPercent(goal, saved) {
-    console.log(goal, saved)
-    return((saved/goal)*100)
+    return(Math.round((saved/goal)*100))
   }
   
   render() {

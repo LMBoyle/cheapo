@@ -12,7 +12,8 @@ import Dashboard from "./pages/App/Dashboard";
 import Goals from "./pages/App/Goals";
 import Friends from "./pages/App/Friends";
 import Profile from "./pages/App/Profile";
-import NoMatch from "./pages/NoMatch/NoMatch";
+import NoMatch from "./pages/Error/NoMatch";
+import NotUser from "./pages/Error/NotUser";
 
 // Components
 import Nav from "./components/Nav";
@@ -102,9 +103,16 @@ class App extends Component {
           <div>
             <Nav user={this.state.user} />
             <div className="auth-wrapper">
-              <Route exact path="/" component={() => <Welcome />} />
-              <Route exact path="/signup" component={SignupForm} />
-              <Route exact path="/login" component={() => <LoginForm login={this.login} />} />
+              <Switch>
+                <Route exact path="/" component={() => <Welcome />} />
+                <Route exact path="/signup" component={SignupForm} />
+                <Route exact path="/login" component={() => <LoginForm login={this.login} />} />
+                <Route exact path="/dashboard" component={() => <Dashboard user={this.state.user} />} />
+                <Route exact path="/goals" component={NotUser} />
+                <Route exact path="/friends" component={NotUser} />
+                <Route exact path="/profile" component={NotUser} />
+                <Route component={NoMatch} />
+              </Switch>
             </div>
           </div>
         )}
