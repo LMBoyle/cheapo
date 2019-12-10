@@ -18,9 +18,9 @@ export default {
     return axios.post('/auth/signup', userData);
   }, 
 
-  updateUser: function(userData){
-    return axios.put('/auth/update', userData); 
+  // Update User in database
+  updateUser: function(id, userData){
+    return axios.put('/auth/user/' + id, userData); 
   }
-
 
 };

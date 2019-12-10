@@ -22,6 +22,7 @@ module.exports = {
       return res.json({ goals: null });
     }
   },
+
   findById: function(req, res) {
     if (req.user) {
       db.User
@@ -36,6 +37,7 @@ module.exports = {
       return res.json({ goals: null });
     }
   },
+
   create: function(req, res) {
     db.Goal
       .create(req.body)
@@ -48,6 +50,7 @@ module.exports = {
       })
       .catch(err => res.status(422).json(err));
   },
+
   update: function(req, res) {
     db.Goal
       .findOneAndUpdate({ _id: req.params.id }, req.body)
@@ -57,6 +60,7 @@ module.exports = {
       })
       .catch(err => res.status(422).json(err));
   },
+  
   remove: function(req, res) {
     db.User.findOneAndUpdate({ _id: req.user._id }, { $pull: { goals: new ObjectId(req.params.id) } }, { new: true })
       .then(() => {

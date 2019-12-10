@@ -20,47 +20,54 @@ class Profile extends Component {
     super();
 
     this.state = {
+      userId: '',
       firstName: '',
       lastName: '',
       username: '',
-      password: '',
-      redirectTo: null
+      password: ''
     }
   }
 
+  // When page loads, load the goals
+  componentDidMount() {
+    this.loadUser();
+  }
 
-  handleChange = (event) => {
+  // Request to load user
+  loadUser = () => {
+    AUTH.getUser()
+      .then(res =>
+        this.setState({ 
+          userId: res.data.user._id,
+          firstName: res.data.user.firstName,
+          lastName: res.data.user.lastName,
+          username: res.data.user.username,
+          password: '',
+        })
+      )
+      .catch(err => console.log(err));
+  };
+
+  handleChange = e => {
     this.setState({
-      [event.target.name]: event.target.value
+      [e.target.name]: e.target.value
     });
   }
 
+  handleSubmit = e => {
+    e.preventDefault();
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    // TODO - validate!
-    AUTH.updateUser({
+    AUTH.updateUser(this.state.userId, {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       username: this.state.username,
       password: this.state.password
-    }).then(response => {
-      // console.log(response);
-      if (!response.data.errmsg) {
-        this.setState({
-          redirectTo: '/'
-        });
-      } else {
-        console.log('duplicate');
-      }
-    });
+    })
+      .then(res => this.loadUser())
+      .catch(err => console.log(err));
   }
 
-
-
 render(){
-
-
   return (
     <Container fluid>
       <Card
@@ -69,16 +76,12 @@ render(){
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1> User Profile </h1>
+            <h1> Update User Profile! </h1>
             </Jumbotron>
           </Col>
         </Row>
-      </Card>
-      <Row>
-        <Col size="md-12">
-
-          <Jumbotron>
-            <h1> Update User Profile! </h1>
+        <Row>
+          <Col size="md-12">
             <Card title="user profile">
               <form style={{ marginTop: 10 }}>
                 <label htmlFor="firstname"> First Name: </label>
@@ -114,12 +117,12 @@ render(){
                   onClick={this.handleSubmit}
                 >
                   Submit Changes!
-            </FormBtn>
-            </form>
+                </FormBtn>
+              </form>
             </Card>
-          </Jumbotron>
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      </Card>
     </Container>
   );
 }
