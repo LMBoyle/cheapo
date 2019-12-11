@@ -79,8 +79,8 @@ render(){
             </Jumbotron>
           </Col>
         </Row>
-        <Row>
-          <Col size="md-12">
+      <Row>
+        <Col size="md-12">            
             <Card title="user profile">
               <form style={{ marginTop: 10 }}>
                 <label htmlFor="firstname"> First Name: </label>
