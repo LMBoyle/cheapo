@@ -34,6 +34,8 @@ Made by [Luke](https://github.com/LMBoyle), [Krishti](https://github.com/krishb0
 - [ ] Progress Towards Weekly Goal vs Overall Goal/Reset Weekly Progress
 - [ ] Show Pennies on Background to Show Progress Towards Goal
 - [ ] Error Message if Login Information is Wrong
+- [ ] Log User Out After They Leave Page for Extended Amount of Time
+- [ ] Re-encrypt password if user changes it
 
 ## Demo
 ![Demo Gif](./client/public/cheapoDemo.gif)
