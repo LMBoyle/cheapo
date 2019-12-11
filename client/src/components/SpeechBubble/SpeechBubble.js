@@ -7,10 +7,10 @@ const SpeechBubble = (props) => (
       { props.children }
     </div>
     <span className={`connect ${props.btnSide}`}>
-      <button type="button" className="btn btn-outline-danger"> <i className="material-icons">insert_comment</i> </button>
-      <button type="button" className="btn btn-outline-danger"> <i className="material-icons">emoji_emotions</i> </button>
+      <button type="button" className="btn"> <i className="material-icons">insert_comment</i> </button>
+      <button type="button" className="btn"> <i className="material-icons">emoji_emotions</i> </button>
     </span>
   </div>
 );
 
-export default SpeechBubble
+export default SpeechBubble;

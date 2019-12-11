@@ -17,9 +17,8 @@ button .btn {
   float: right;
 }
 
-.btn-outline-danger {
+.btn {
   color: #650D1B;
-  border-color: #650D1B
 }
 
 /* Profile ======================================================================================== */

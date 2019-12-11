@@ -1,4 +1,4 @@
-var posts = [
+var Posts = [
   {
     firstName: "Sammy",
     goal: "Rent",
@@ -21,4 +21,4 @@ var posts = [
   }
 ]
 
-export default posts
+export default Posts

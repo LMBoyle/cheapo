@@ -11,6 +11,8 @@ import SpeechBubble from "../../components/SpeechBubble";
 // Utils
 import socialPosts from "../../utils/mockSocial"
 
+var s = 0
+
 // Functions ======================================================================================
 
 function Dashboard() {
@@ -30,12 +32,26 @@ function Dashboard() {
         </Row>
         <Row>
           <Col size="md-12">
-            { socialPosts.map(post => (
-              <SpeechBubble
-                bubbleSide={0}
-              >
-                {post.firstName + " " + post.msg + " " + post.goal}
-              </SpeechBubble>
+            { socialPosts.map((post, i) => (
+              (s===0 ? (
+                s++,
+                <SpeechBubble
+                  bubbleSide={"sbR"}
+                  btnSide={"btnL"}
+                  key={i}
+                >
+                  {post.firstName + " " + post.msg + " " + post.goal}
+                </SpeechBubble>
+              ) : (
+                s--,
+                <SpeechBubble
+                  bubbleSide={"sbL"}
+                  btnSide={"btnR"}
+                  key={i}
+                >
+                  {post.firstName + " " + post.msg + " " + post.goal}
+                </SpeechBubble>
+              ))
             ))}
           </Col>
         </Row>
