@@ -111,6 +111,7 @@ class Goals extends Component {
         }]
       }
     })
+      // Once done, loadGoals to clear out state and show updated data on screen
       .then(res => this.loadGoals())
       .catch(err => console.log(err));
   }
@@ -118,7 +119,9 @@ class Goals extends Component {
   // When user clicks submit button on add tab
   handleSubmit = e => {
     e.preventDefault();
+    // If everything is filled in
     if (this.state.goalName && this.state.totalAmt && this.state.weeklyAmt) {
+      // Save the goal
       API.saveGoal({
         goalName: this.state.goalName,
         totalAmt: this.state.totalAmt,

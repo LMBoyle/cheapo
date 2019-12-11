@@ -3,9 +3,7 @@
 import React, { Component } from "react";
 
 // Components
-// import { Col, Row } from "../../components/Grid";
-import { ListGoals, GoalCircle } from "../../components/List";
-
+import { GoalCircle } from "../../components/List";
 
 // Functions ======================================================================================
 

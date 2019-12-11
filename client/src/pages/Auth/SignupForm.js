@@ -104,7 +104,7 @@ class SignupForm extends Component {
                     value={this.state.confirmPassword}
                     onChange={this.handleChange}
                   />
-                  <Link to="/"> Login </Link>
+                  <Link to="/login"> Login </Link>
                   <FormBtn onClick={this.handleSubmit}> Register </FormBtn>
                 </form>
               </Card>
