@@ -6,23 +6,37 @@ A website help you budget your money and have your friends push to toward better
 Made by [Luke](https://github.com/LMBoyle), [Krishti](https://github.com/krishb09), and [Maurice](https://github.com/moeewebb)
 
 ## Languages/Technologies 
+* React
 * HTML
 * Bootstrap
 * JavaScript
 * jQuery
-* React
-* MySQL OR MongoDB
+* MongoDB
 * Heroku
-  * JawsDB MySQL OR mLab MongoDB 
-
+  * mLab MongoDB 
 
 ### NPM Packages
 * Express
-* Handlebars
-* Sequelize OR Mongoose
+* Mongoose
+* Axios
+* Passport
+* Morgan
+* Moment
+* React-chartjs-2
+* React-reveal
 
 ## Future Development/Improvements
 - [ ] Mobile Responsive
+- [ ] Connect with Other Users/Connect to Facebook
+- [ ] Connect to Bank Account
+- [ ] Show Ranking on Dashboard/View Friends Progress
+- [ ] Achievements
+- [ ] Progress Towards Weekly Goal vs Overall Goal/Reset Weekly Progress
+- [ ] Show Pennies on Background to Show Progress Towards Goal
+- [ ] Error Message if Login Information is Wrong
+
+## Demo
+![Demo Gif](./client/public/cheapoDemo.gif)
 
 ## Links
 
@@ -30,4 +44,4 @@ Made by [Luke](https://github.com/LMBoyle), [Krishti](https://github.com/krishb0
 
 [Github Repo](https://github.com/LMBoyle/cheapo)
 
-<!-- [Presentation]() -->
+[Presentation](https://docs.google.com/presentation/d/1LxdLOHVndMekW2jzFvFRxmnqDS16xsBc_cBJzBlE19Y/edit?usp=sharing)
