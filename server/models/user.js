@@ -44,6 +44,18 @@ userSchema.pre('save', function(next) {
 	}
 })
 
+// Define hooks for pre-saving
+userSchema.pre('findOneAndUpdate', function(next) {
+	console.log("in pre hook")
+	if (!this.password) {
+		// console.log('No password provided!');
+		next();
+	} else {
+		this.password = this.hashPassword(this.password);
+		next();
+	}
+})
+
 // Create reference to User
 const User = mongoose.model('User', userSchema);
 
