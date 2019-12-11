@@ -1,3 +1,3 @@
 // Export =========================================================================================
 
-export { default } from "./DashboardLoggedIn";
+export { default } from "./SpeechBubble";
