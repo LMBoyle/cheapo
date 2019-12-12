@@ -5,14 +5,20 @@ import React from "react";
 // Components
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
-import DashboardLoggedIn from "../../components/DashboardLoggedIn"
 import { Card } from "../../components/Card";
+import SpeechBubble from "../../components/SpeechBubble";
+
+// Utils
+import socialPosts from "../../utils/mockSocial"
+
+var s = 0
 
 // Functions ======================================================================================
 
 function Dashboard() {
+  console.log(socialPosts)
   return (
-    <Container fluid>
+    <Container>
       <Card
         cardClass={"cardWrap"}
       >
@@ -20,8 +26,33 @@ function Dashboard() {
           <Col size="md-12">
             <Jumbotron>
               <h1> Welcome to Cheapo! </h1>
-              <DashboardLoggedIn />
+              <p> Look at what your friends have been up to! </p>
             </Jumbotron>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-12">
+            { socialPosts.map((post, i) => (
+              (s===0 ? (
+                s++,
+                <SpeechBubble
+                  bubbleSide={"sbR"}
+                  btnSide={"btnL"}
+                  key={i}
+                >
+                  {post.firstName + " " + post.msg + " " + post.goal}
+                </SpeechBubble>
+              ) : (
+                s--,
+                <SpeechBubble
+                  bubbleSide={"sbL"}
+                  btnSide={"btnR"}
+                  key={i}
+                >
+                  {post.firstName + " " + post.msg + " " + post.goal}
+                </SpeechBubble>
+              ))
+            ))}
           </Col>
         </Row>
       </Card>
